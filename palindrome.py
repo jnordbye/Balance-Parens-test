@@ -18,12 +18,23 @@ def is_palindrome2(s):
             return False
 
 list = [ 'a', 'b', 'c','b','a' ];
+TestString = 'abcbad'
          
 
-test = is_palindrome( "a")
+test = is_palindrome( list)
+
 
 if (  test == True  ):
-    print("Yes" )
+    print("Yes" , end = '' )
 if ( test == False ):
-    print("no")
+    print("no", end = '')
     
+test = is_palindrome2( TestString)
+print(" for list")
+
+if (  test == True  ):
+    print("Yes" , end = '' )
+if ( test == False ):
+    print("no", end = '')
+print(' for string')
+
