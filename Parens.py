@@ -1,23 +1,35 @@
-myStack = []
-openParen = [ '(' , '[' , '{']
 
-closeParen = [')' , ']' , '}']
+def ParenCheckList( inputStr ):
+    rightParen = [ ')' , ']', '}']
+    leftParen = ['(', '[', '{']
+    parenList = []
+    
+    for char in inputStr:
+        if char in leftParen:
+            parenList.append(char)
+        elif char in rightParen:
+            if len(parenList) == 0 or parenList[-1] != leftParen[rightParen.index(char)]:
+                return False
+            else:
+                parenList.pop()
+    
+    if len(parenList) == 0:
+        return True
+    else:
+        return False
 
-test = input ( " Please enter a string to check")
+    
+    
+inputStr = input('Enter string to test:')
 
-
-for char in test:
-    if char in openParen:
-        myStack.append( char)
-    elif char in closeParen:
-        if len(myStack) == 0 or myStack[-1] != openParen[ closeParen.index(char)]:
-            myStack.append(char)
-            break
-        else:
-            myStack.pop()
-
-
-if len(myStack) > 0:
-    print( "Unbalanced " )
+if ParenCheckList( inputStr ):
+    print(" Parenthesis balanced")
 else:
-    print( " Balanced ")
+    print(' Parenthesis not balanced')
+    
+    
+    
+    
+    
+    
+    
